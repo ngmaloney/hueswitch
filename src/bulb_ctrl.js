@@ -7,7 +7,6 @@ BulbCtrl = {};
 BulbCtrl.menu = new UI.Menu();
 
 BulbCtrl.render = function(bulb_id) {
-  Settings.data("current_bulb", bulb_id);
   Ajax(
   {
     url: "http://" + Settings.data("hub_ip") + "/api/" + Settings.data("user") + "/lights/" + bulb_id,
@@ -16,7 +15,6 @@ BulbCtrl.render = function(bulb_id) {
   function(data) {
     var turned_on = data.state.on;    
     var bulb_name = data.name;
-    //var bulb_id = Settings.data('current_bulb');
     var item = null;
     
     if(turned_on) {
@@ -38,7 +36,6 @@ BulbCtrl.render = function(bulb_id) {
     BulbCtrl.menu.on('select', function(e) {
       BulbCtrl.toggle_power(e.item);
     });
-    
     BulbCtrl.menu.show();
   },
   function(error) {
