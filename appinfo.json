@@ -28,10 +28,15 @@
                 "file": "fonts/UbuntuMono-Regular.ttf",
                 "name": "MONO_FONT_14",
                 "type": "font"
+            },
+            {
+                "file": "images/hueswitch.png",
+                "name": "IMAGES_HUESWITCH_PNG",
+                "type": "png"
             }
         ]
     },
-    "shortName": "demojs",
+    "shortName": "HueSwitch",
     "uuid": "4fc540c5-1448-4242-a768-391cf732e094",
     "versionCode": 1,
     "versionLabel": "1.0",
