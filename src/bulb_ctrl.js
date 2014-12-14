@@ -9,7 +9,7 @@ BulbCtrl.menu = new UI.Menu();
 BulbCtrl.render = function(bulb_id) {
   Ajax(
   {
-    url: "http://" + Settings.data("hub_ip") + "/api/" + Settings.data("user") + "/lights/" + bulb_id,
+    url: "http://" + Settings.option("hub_ip") + "/api/" + Settings.option("user") + "/lights/" + bulb_id,
     type: 'json'
   },
   function(data) {
@@ -46,7 +46,7 @@ BulbCtrl.render = function(bulb_id) {
 BulbCtrl.toggle_power = function(item) {
   var turn_on = !item.turned_on;
   var bulb_id = item.id;
-  var state_url = "http://" + Settings.data("hub_ip") + "/api/" + Settings.data("user") + "/lights/" + bulb_id + "/state";
+  var state_url = "http://" + Settings.option("hub_ip") + "/api/" + Settings.option("user") + "/lights/" + bulb_id + "/state";
   Ajax(
   {
     url: state_url,

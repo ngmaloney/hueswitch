@@ -9,14 +9,14 @@ var Settings = require('settings');
 var Ajax = require('ajax');
 var BulbCtrl = require('bulb_ctrl');
 
-Settings.data({
+Settings.option({
   hub_ip: "10.0.0.201",
   user: "newdeveloper"
 });
 
 Ajax(
   {
-    url: "http://" + Settings.data("hub_ip") + "/api/" + Settings.data("user") + "/lights",
+    url: "http://" + Settings.option("hub_ip") + "/api/" + Settings.option("user") + "/lights",
     type: 'json'
   },
   function(data) {
