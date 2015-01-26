@@ -14,6 +14,13 @@ Settings.option({
   user: "newdeveloper"
 });
 
+var card = new UI.Card({
+  title: "Hue Switch",
+  body: "Loading bulb list."
+});
+
+card.show();
+
 Ajax(
   {
     url: "http://" + Settings.option("hub_ip") + "/api/" + Settings.option("user") + "/lights",
