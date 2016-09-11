@@ -12,35 +12,35 @@
                 "file": "images/menu_icon.png",
                 "menuIcon": true,
                 "name": "IMAGE_MENU_ICON",
-                "type": "png"
+                "type": "bitmap"
             },
             {
                 "file": "images/logo_splash.png",
                 "name": "IMAGE_LOGO_SPLASH",
-                "type": "png"
+                "type": "bitmap"
             },
             {
                 "file": "images/tile_splash.png",
                 "name": "IMAGE_TILE_SPLASH",
-                "type": "png"
+                "type": "bitmap"
             },
             {
                 "file": "fonts/UbuntuMono-Regular.ttf",
                 "name": "MONO_FONT_14",
                 "type": "font"
-            },
-            {
-                "file": "images/hueswitch.png",
-                "name": "IMAGES_HUESWITCH_PNG",
-                "type": "png"
             }
         ]
     },
+    "sdkVersion": "3",
     "shortName": "HueSwitch",
+    "targetPlatforms": [
+        "aplite"
+    ],
     "uuid": "4fc540c5-1448-4242-a768-391cf732e094",
     "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
+        "hiddenApp": false,
         "watchface": false
     }
 }
