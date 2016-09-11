@@ -12,18 +12,23 @@ var clay = new Clay(clayConfig, null, {autoHandleEvents: false});
 var Ajax = require('ajax');
 var BulbCtrl = require('bulb_ctrl');
 
-// TODO replace with real config
-// EDITME! Replace with:
-//    your IP address (perhaps with port number)
-//    your username
-Settings.option({
-  hub_ip: "10.0.0.201",
-  user: "newdeveloper"
+var loading_card = new UI.Card({
+  title: "Hue Switch",
+  body: "Loading bulb list."
+});
+
+var need_config_card = new UI.Card({
+  title: "Hue Switch",
+  body: "Set config on Phone."
 });
 
 
 function GetSwitchList()
 {
+    need_config_card.hide();
+    loading_card.show();
+
+    // TODO CloudPebble emulation test data/service?
     Ajax(
       {
         url: "http://" + Settings.option("hub_ip") + "/api/" + Settings.option("user") + "/lights",
@@ -47,9 +52,11 @@ function GetSwitchList()
           BulbCtrl.render(e.item.id); 
         });
         
+        loading_card.hide();
         menu.show();
       },
       function(error) {
+        // TODO show something on watch
         console.log("ERROR: " + error);
       }
     );
@@ -75,9 +82,14 @@ Pebble.addEventListener('webviewclosed', function(e) {
   GetSwitchList();
 });
 
-var card = new UI.Card({
-  title: "Hue Switch",
-  body: "Loading bulb list."
-});
-
-card.show();
+console.log('ip: ' + Settings.option("hub_ip"));
+if (Settings.option("hub_ip"))
+{
+    console.log('have ip');
+    GetSwitchList();
+}
+else
+{
+    console.log('need ip');
+    need_config_card.show();
+}
