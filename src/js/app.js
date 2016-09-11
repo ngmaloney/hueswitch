@@ -9,6 +9,10 @@ var Settings = require('settings');
 var Ajax = require('ajax');
 var BulbCtrl = require('bulb_ctrl');
 
+// TODO replace with real config
+// EDITME! Replace with:
+//    your IP address (perhaps with port number)
+//    your username
 Settings.option({
   hub_ip: "10.0.0.201",
   user: "newdeveloper"
